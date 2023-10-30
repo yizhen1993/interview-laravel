@@ -19,7 +19,15 @@ paths:
       operationId: students.index
       tags:
         - students
-      description: List of all students
+      description: |-
+        List of all students
+
+        The email parameter needs to be an exact match.
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: email
 components:
   schemas:
     Student:
