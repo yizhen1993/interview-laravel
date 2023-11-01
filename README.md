@@ -31,5 +31,11 @@
 cp .env.example .env
 docker compose up -d
 ```
+
 3. Submit your answer after developing.
+
+
+### Duedate
+The duedate is 5days from receiving the email about this assignment.
+Weekend is not included the due date. 
 
