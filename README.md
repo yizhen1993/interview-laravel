@@ -38,4 +38,5 @@ docker compose up -d
 ### Duedate
 The duedate is 5days from receiving the email about this assignment.
 Weekend is not included the due date. 
-
+If you finish developing, you can submit earlier than the duedate.
+The faster you can get it out, the higher the rating.
