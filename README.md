@@ -21,6 +21,7 @@
 - Prease write readable codes.
 - If there is enough time, please also perform static analysis on GitHub Actions.
 - If there is enough time, please develop screens.
+- Please write down the procedure for starting and running the tests in README.md.
 
 ## Installation
 
@@ -32,11 +33,13 @@ cp .env.example .env
 docker compose up -d
 ```
 
-3. Submit your answer after developing.
+## Submit
+After developing, you need to submit your answer.
+Please send us email. And please write the url about your github repository in your email.
 
 
-### Duedate
-The duedate is 5days from receiving the email about this assignment.
-Weekend is not included the due date. 
-If you finish developing, you can submit earlier than the duedate.
-The faster you can get it out, the higher the rating.
+## Duedate
+- The duedate is 5days from receiving the email about this assignment.
+Weekend is not included the due date.
+- If you finish developing, you can submit earlier than the duedate.
+- The faster you can get it out, the higher the rating.
