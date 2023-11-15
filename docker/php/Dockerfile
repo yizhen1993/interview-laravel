@@ -12,6 +12,7 @@ apt-get upgrade \
 && a2enmod rewrite \
 && rm -rf /var/lib/apt/lists/* \
 && docker-php-ext-install -j$(nproc) \
+    pdo_mysql \
     zip \
 && docker-php-source delete
 
