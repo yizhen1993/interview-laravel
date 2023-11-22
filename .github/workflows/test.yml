@@ -25,6 +25,9 @@ jobs:
           cp .env.example .env
           cd ..
 
+      - name: Change ownership of storage directory
+        run: sudo chown -R $USER:$USER storage
+
       - name: Execute Laravel commands in the app container
         run: |
           docker compose exec app php artisan key:generate
