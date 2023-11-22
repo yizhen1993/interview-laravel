@@ -21,12 +21,12 @@ jobs:
         run: |
           cd src
           npm install
+          composer install
           cp .env.example .env
           cd ..
 
       - name: Execute Laravel commands in the app container
         run: |
-          docker compose exec app composer install
           docker compose exec app php artisan key:generate
           docker compose exec app php artisan migrate:fresh --seed
 
