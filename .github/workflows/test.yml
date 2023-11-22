@@ -20,19 +20,24 @@ jobs:
       - name: Copy .env in Laravel project
         run: |
           cd src
-          npm install
-          composer install
           cp .env.example .env
           cd ..
-
-      - name: Change ownership of storage directory
-        run: sudo chown -R $USER:$USER storage
+      
+      - name: npm install in Laravel project
+        run: |
+          cd src
+          npm install
+          cd ..
+      
+      - name: composer install in Laravel project
+        run: |
+          docker compose exec --user user app composer install
 
       - name: Execute Laravel commands in the app container
         run: |
-          docker compose exec app php artisan key:generate
-          docker compose exec app php artisan migrate:fresh --seed
+          docker compose exec --user user app php artisan key:generate
+          docker compose exec --user user app php artisan migrate:fresh --seed
 
       - name: Perform PHPUnit test
         run: |
-          docker compose exec app php artisan test
+          docker compose exec --user user app php artisan test
