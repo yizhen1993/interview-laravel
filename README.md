@@ -1,3 +1,7 @@
+# Please refer bottom for a all in one installaton
+[Jump to Installation section](#All_In_One_Installation)
+
+
 # interview-laravel
 
 ## Assignment
@@ -43,3 +47,24 @@ Please send us email. And please write the url about your github repository in y
 Weekend is not included the due date.
 - If you finish developing, you can submit earlier than the duedate.
 - The faster you can get it out, the higher the rating.
+
+## All_In_One_Installation
+
+1. Run the bash script below
+
+```bash
+sh init.sh
+```
+
+http://localhost:8080/  #admin homepage 
+```
+email : admin@example.com
+password : admin
+```
+
+http://localhost:8881/   #phpmyadmin 
+```
+server : toyeight.db
+username : toyeight
+password : 87sjbS2dBmzd
+```
