@@ -29,6 +29,10 @@ jobs:
           npm install
           cd ..
       
+      - name: change laravel folder permissionto user
+        run: |
+          docker compose exec --user user app chown -R user:user /var/www/laravel
+      
       - name: composer install in Laravel project
         run: |
           docker compose exec --user user app composer install
