@@ -1,25 +1,35 @@
 name: Laravel Docker test
 on: [push]
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Copy .env
-      run: cp .env.example .env
-    - name: Build docker images & run docker containers
-      run: 
-        echo ---Building images and starting up docker---
-        docker compose up -d
-        echo ---Containers up—
-    - name: Copy .env in laravel project
-      run: cd src && npm install && cp .env.example .env && cd ..
-    - name: Execute Laravel commands in the app container
-      run: 
-        docker-compose exec app composer install
-        docker-compose exec app php artisan key:generate
-        docker-compose exec app php artisan migrate:fresh --seed
-    - name: Perform phpunit test
-      run:
-        docker-compose exec app php artisan test
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy .env
+        run: cp .env.example .env
+
+      - name: Build docker images & run docker containers
+        run: |
+          echo "---Building images and starting up docker---"
+          docker compose up -d
+          echo "---Containers up---"
+
+      - name: Copy .env in Laravel project
+        run: |
+          cd src
+          npm install
+          cp .env.example .env
+          cd ..
+
+      - name: Execute Laravel commands in the app container
+        run: |
+          docker compose exec app composer install
+          docker compose exec app php artisan key:generate
+          docker compose exec app php artisan migrate:fresh --seed
+
+      - name: Perform PHPUnit test
+        run: |
+          docker compose exec app php artisan test
