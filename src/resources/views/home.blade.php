@@ -58,10 +58,10 @@
 <script>
 
     $(function() {
+        let token = localStorage.getItem('authorizationToken');
         let table = defaultTable( $('#resultTable'));
         async function defaultTable(el,email='')
         {
-            console.log('run', email);
             var data = {};
             if(email != ''){
                 data = {
@@ -69,9 +69,14 @@
                 }
             }
             var dataSet = [];
+            var headers = {
+                'Authorization' : 'Bearer ' + `${token}`
+            };
+
             await $.ajax({
-                url: "{{ route('student.list')}}",
+                url: "{{ route('api.student.list')}}",
                 type: "get",
+                headers: headers,
                 data: data,
                 success: function(response) {
                     dataSet = response;

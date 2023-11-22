@@ -18,7 +18,11 @@ class DatabaseSeeder extends Seeder
             'password' => 'admin'
         ]);
 
-        \App\Models\Student::factory(10)->create();
+        \App\Models\Student::factory()->create([
+            'name' => 'ambrose83',
+            'email' => 'ambrose83@example.org'
+        ]);
+        \App\Models\Student::factory(9)->create();
 
         $this->call(CourseSeeder::class);
         $this->call(StudentCourseSeeder::class);

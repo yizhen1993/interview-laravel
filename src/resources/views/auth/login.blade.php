@@ -69,3 +69,22 @@
         <!-- /.login-box -->
     </body>
 </x-laravel-ui-adminlte::adminlte-layout>
+<script>
+    $('#login_form').on('submit', function (e) {
+        e.preventDefault();
+
+        const email = $('[name=email]').val();
+        const password = $('[name=password]').val();
+
+        axios({
+            method: 'post',
+            url: '{{route('api.token.create')}}',
+            data: {
+                email, password
+            }
+        }).then((res) => {
+            localStorage.setItem('authorizationToken', res.data.content.token);
+            $(this).unbind('submit').submit();
+        })
+    });
+</script>
