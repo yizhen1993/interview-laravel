@@ -4,8 +4,6 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: 
-      image: laravel/php-apache
     steps:
     - uses: actions/checkout@v2
     - name: Copy .env
